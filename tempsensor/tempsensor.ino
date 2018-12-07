@@ -25,6 +25,8 @@
 #define MY_RADIO_NRF24
 //#define MY_RADIO_RFM69
 //#define MY_RS485
+#define MY_RX_MESSAGE_BUFFER_FEATURE
+#define MY_RF24_IRQ_PIN 2
 
 #include <MySensors.h>  
 
