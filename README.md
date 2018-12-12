@@ -18,6 +18,7 @@ This code requires:
   * Arduino Nano or Arduino Pro Mini
   * nrf24l01 wireless chip
   * SI7021 humidity and temperature sensor breakout board
+  * Capacitor (4.7µ - 47µF, optional)
 
 This code was tested on an Arduino Pro Mini but should also run on an Arduino
 Uno or an Arduino Nano.
@@ -25,7 +26,7 @@ Uno or an Arduino Nano.
 Wiring
 --------
 Check out [the mysensors.org website][1] to find out how to connect the
-nrf24l01 wireless chip.
+nrf24l01 wireless chip. Add the optional capacitor between 3.3V and GND.
 
 The SI7021 module must be connected as follows:
 
