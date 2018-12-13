@@ -15,19 +15,7 @@
  * along with this code.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-// Enable debug prints
-#define MY_DEBUG
-
-// Enable REPORT_BATTERY_LEVEL to measure battery level and send changes to gateway
-//#define REPORT_BATTERY_LEVEL
-
-// Enable and select radio type attached 
-#define MY_RADIO_NRF24
-//#define MY_RADIO_RFM69
-//#define MY_RS485
-#define MY_RX_MESSAGE_BUFFER_FEATURE
-#define MY_RF24_IRQ_PIN 2
-
+#include "MySettings.h"
 #include <MySensors.h>  
 
 #define CHILD_ID_HUM  0
