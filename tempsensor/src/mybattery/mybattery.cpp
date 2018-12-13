@@ -33,7 +33,7 @@ void MyBattery::setup(int sensePin, float maxVoltage) {
 #endif
 }
 
-void MyBattery::readAndReportBatteryLevel(void (*reportFunction)(int)) {
+void MyBattery::readAndReportBatteryLevel() {
 	int sensorValue = analogRead(batterySensePin);
 	int batteryPercentage = sensorValue / 10;
 

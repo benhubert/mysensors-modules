@@ -28,7 +28,7 @@ class MyBattery
     /**
      * Reads the battery level and sends it over the mysensors network.
      */
-    void readAndReportBatteryLevel(void (*reportFunction)(int));
+    void readAndReportBatteryLevel();
 
 };
 
