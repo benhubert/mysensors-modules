@@ -15,6 +15,9 @@
  * along with this code.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#define SKETCH_NAME "temperature and humidity (si7021)"
+#define SKETCH_VERSION "1.0"
+
 #include "MySettings.h"
 #include <MySensors.h>
 
@@ -36,7 +39,7 @@ static MyBattery mybattery;
 void presentation()  
 { 
   // Send the sketch info to the gateway
-  sendSketchInfo("TemperatureAndHumidity", "1.0");
+  sendSketchInfo(SKETCH_NAME, SKETCH_VERSION);
 
   // Present sensors as children to gateway
   present(CHILD_ID_HUM,  S_HUM,  "Humidity");
