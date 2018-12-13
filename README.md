@@ -20,6 +20,9 @@ This code requires:
   * SI7021 humidity and temperature sensor breakout board
   * Capacitor (4.7µ - 47µF, optional)
 
+Check out the [README of MyBattery](tempsensor/src/mybattery/README.md) for
+hardware that is required for reading the battery power.
+
 This code was tested on an Arduino Pro Mini but should also run on an Arduino
 Uno or an Arduino Nano.
 
