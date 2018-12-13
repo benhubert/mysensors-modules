@@ -15,8 +15,11 @@
  * along with this code.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#define SKETCH_NAME "temperature and humidity (hyt221)"
+#define SKETCH_VERSION "1.0"
+
 #include "MySettings.h"
-#include <MySensors.h>  
+#include <MySensors.h>
 
 #define CHILD_ID_HUM  0
 #define CHILD_ID_TEMP 1
@@ -27,8 +30,11 @@ static bool metric = true;
 static const uint64_t MEASURE_WAIT = 15000;
 static const uint64_t UPDATE_INTERVAL = 30000-MEASURE_WAIT;
 
-#include "hyt221.h"
+#include "src/hyt221/hyt221.h"
 static HYT221 sensor;
+
+#include "src/mybattery/mybattery.h"
+static MyBattery mybattery; 
 
 #ifdef REPORT_BATTERY_LEVEL
 #include <Vcc.h>
@@ -42,7 +48,7 @@ static Vcc vcc(VccCorrection);
 void presentation()  
 { 
   // Send the sketch info to the gateway
-  sendSketchInfo("TemperatureAndHumidity", "1.0");
+  sendSketchInfo(SKETCH_NAME, SKETCH_VERSION);
 
   // Present sensors as children to gateway
   present(CHILD_ID_HUM,  S_HUM,  "Humidity");
@@ -53,6 +59,7 @@ void presentation()
 
 void setup()
 {
+  mybattery.setup(A0, 3.44);
   while (not sensor.begin()) {
     Serial.println(F("Sensor not detected!"));
     sleep(5000);
@@ -87,23 +94,7 @@ void loop()
     send(msgHum.set(humidity, 2));
   }
 
-#ifdef REPORT_BATTERY_LEVEL
-  const uint8_t batteryPcnt = static_cast<uint8_t>(0.5 + vcc.Read_Perc(VccMin, VccMax));
-
-#ifdef MY_DEBUG
-  Serial.print(F("Vbat "));
-  Serial.print(vcc.Read_Volts());
-  Serial.print(F("\tPerc "));
-  Serial.println(batteryPcnt);
-#endif
-
-  // Battery readout should only go down. So report only when new value is smaller than previous one.
-  if ( batteryPcnt < oldBatteryPcnt )
-  {
-      sendBatteryLevel(batteryPcnt);
-      oldBatteryPcnt = batteryPcnt;
-  }
-#endif
+  mybattery.readAndReportBatteryLevel();
 
   // Sleep until next update to save energy
   sleep(UPDATE_INTERVAL); 
