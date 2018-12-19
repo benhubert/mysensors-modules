@@ -34,16 +34,7 @@ static const uint64_t UPDATE_INTERVAL = 30000-MEASURE_WAIT;
 static HYT221 sensor;
 
 #include "src/mybattery/mybattery.h"
-static MyBattery mybattery; 
-
-#ifdef REPORT_BATTERY_LEVEL
-#include <Vcc.h>
-static uint8_t oldBatteryPcnt = 200;  // Initialize to 200 to assure first time value will be sent.
-const float VccMin        = 1.8;      // Minimum expected Vcc level, in Volts: Brownout at 1.8V    -> 0%
-const float VccMax        = 2.0*1.6;  // Maximum expected Vcc level, in Volts: 2xAA fresh Alkaline -> 100%
-const float VccCorrection = 1.0;      // Measured Vcc by multimeter divided by reported Vcc
-static Vcc vcc(VccCorrection); 
-#endif
+static MyBattery mybattery;
 
 void presentation()  
 { 
