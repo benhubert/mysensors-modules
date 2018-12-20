@@ -15,7 +15,7 @@
  * along with this code.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#define SKETCH_NAME "temperature and humidity (si7021)"
+#define SKETCH_NAME "humi_si7021"
 #define SKETCH_VERSION "1.0"
 
 #include "MySettings.h"
