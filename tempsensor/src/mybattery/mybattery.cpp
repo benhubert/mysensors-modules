@@ -8,7 +8,7 @@
 
 int batterySensePin = 0;
 float batteryMaxVoltage = 3.44;
-float batteryVoltsPerBit = 0.003363075;
+float batteryVoltsPerBit = batteryMaxVoltage / 1023.0;
 int lastBatteryPercentage = -1;
 int callCount = 0;
 
@@ -35,7 +35,7 @@ void MyBattery::setup(int sensePin, float maxVoltage) {
 
 void MyBattery::readAndReportBatteryLevel() {
 	int sensorValue = analogRead(batterySensePin);
-	int batteryPercentage = sensorValue / 10;
+	int batteryPercentage = sensorValue / 10.23;
 
 #ifdef MY_DEBUG
 	float batteryVoltage = sensorValue * batteryVoltsPerBit;
