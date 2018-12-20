@@ -79,7 +79,7 @@ void loop()
   send(msgTemp.set(temperature, 2));
   send(msgHum.set(humidity, 2));
 
-  mybattery.readAndReportBatteryLevel(&sendBatteryLevel);
+  mybattery.readAndReportBatteryLevel();
 
   // Sleep until next update to save energy
   sleep(UPDATE_INTERVAL); 
