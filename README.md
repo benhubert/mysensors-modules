@@ -4,12 +4,14 @@ This is a small temperature and humidity sensor module for the mysensors.org
 IoT network.
 
 The code is based on the [mysensors SI7021 example][1] with some small
-adoptions.
+adoptions. I decided to use SI7021 based on the test results of
+[this great article][2].
 
 Author: Benjamin Hubert
 Distributed under GPLv3
 
-[1] https://www.mysensors.org/build/humidity_si7021
+[1]: https://www.mysensors.org/build/humidity_si7021
+[2]: http://www.kandrsmith.org/RJS/Misc/hygrometers.html
 
 Hardware requirements
 -----------------------
@@ -28,7 +30,7 @@ Uno or an Arduino Nano.
 
 Wiring
 --------
-Check out [the mysensors.org website][1] to find out how to connect the
+Check out [the mysensors.org website][3] to find out how to connect the
 nrf24l01 wireless chip. Add the optional capacitor between 3.3V and GND.
 
 The SI7021 module must be connected as follows:
@@ -40,5 +42,5 @@ The SI7021 module must be connected as follows:
 |   3v3   |  VDD   | 3.3 V (or 5V) |
 |   A5    |  SCL   | Clock         |
 
-[1]: https://www.mysensors.org/build/connect_radio
+[3]: https://www.mysensors.org/build/connect_radio
 
