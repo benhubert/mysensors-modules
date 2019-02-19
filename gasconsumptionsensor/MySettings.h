@@ -16,12 +16,10 @@
  */
 
 // Enable debug prints
-#define MY_DEBUG
+//#define MY_DEBUG
 
 // Enable and select radio type attached 
 #define MY_RADIO_NRF24
-//#define MY_RADIO_RFM69
-//#define MY_RS485
-#define MY_RX_MESSAGE_BUFFER_FEATURE
-#define MY_RF24_IRQ_PIN 2
 
+// We need INT0 for the button
+#undef MY_RX_MESSAGE_BUFFER_FEATURE
